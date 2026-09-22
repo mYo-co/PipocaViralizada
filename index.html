@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ff1682">
+  <meta name="description" content="Pipoca Viralizada — curso completo para aprender receitas, custos, embalagens e estratégias de venda de pipoca gourmet.">
+  <title>Pipoca Viralizada 🍿 | Aprenda, Produza e Venda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink:#ff1682;
+      --pink-dark:#d90968;
+      --yellow:#ffd51e;
+      --cream:#fff8e7;
+      --brown:#32170f;
+      --white:#fff;
+      --shadow:0 16px 40px rgba(50,23,15,.16);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--brown);
+      font-family:Poppins,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .page{width:100%;overflow:hidden}
+    .hero-wrap{
+      background:linear-gradient(145deg,#ff0f79 0%,#ff3d9a 48%,#ffcf1c 150%);
+      padding:0 0 18px;
+    }
+    .hero{
+      width:100%;
+      max-width:760px;
+      margin:0 auto;
+      position:relative;
+    }
+    .hero img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+    .cta{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:58px;
+      padding:15px 22px;
+      margin:14px 18px 0;
+      border-radius:999px;
+      background:var(--yellow);
+      color:#160c08;
+      font-family:"Baloo 2",sans-serif;
+      font-size:1.25rem;
+      line-height:1;
+      font-weight:800;
+      text-align:center;
+      box-shadow:0 9px 0 rgba(128,69,0,.2),0 14px 28px rgba(0,0,0,.16);
+      border:3px solid #fff;
+      transition:.18s ease;
+    }
+    .cta:active{transform:translateY(3px);box-shadow:0 5px 0 rgba(128,69,0,.2)}
+    .cta.pink{background:var(--pink);color:#fff}
+    .cta .arrow{font-size:1.6rem}
+    .trust{
+      display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+      color:#fff;font-size:.75rem;font-weight:600;
+      padding:13px 14px 2px;text-align:center;
+    }
+    .trust span{display:inline-flex;align-items:center;gap:5px}
+    .section{padding:46px 18px}
+    .section.yellow{background:var(--yellow)}
+    .section.pink{background:var(--pink);color:#fff}
+    .section.dark{background:#17120f;color:#fff}
+    .container{width:100%;max-width:980px;margin:0 auto}
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--pink);
+      color:#fff;
+      font-weight:800;
+      font-size:.78rem;
+      letter-spacing:.03em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    h1,h2,h3{
+      font-family:"Baloo 2",sans-serif;
+      line-height:.98;
+      margin:0;
+    }
+    h2{font-size:clamp(2.15rem,9vw,4rem);text-align:center}
+    .lead{
+      margin:14px auto 0;
+      max-width:680px;
+      text-align:center;
+      font-size:1rem;
+      line-height:1.65;
+      color:#5c4a43;
+    }
+    .dark .lead,.pink .lead{color:rgba(255,255,255,.84)}
+    .offer-card{
+      background:#fff;
+      border-radius:28px;
+      padding:12px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .offer-card img{width:100%;border-radius:20px}
+    .offer-cta{margin-top:18px}
+    .slider-shell{
+      position:relative;
+      margin-top:24px;
+    }
+    .slider{
+      display:flex;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scrollbar-width:none;
+      padding:2px 2px 12px;
+      -webkit-overflow-scrolling:touch;
+    }
+    .slider::-webkit-scrollbar{display:none}
+    .slide{
+      flex:0 0 88%;
+      scroll-snap-align:center;
+      border-radius:22px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 12px 30px rgba(0,0,0,.16);
+    }
+    .slide img,.slide video{width:100%;height:auto;display:block}
+    .dots{display:flex;justify-content:center;gap:7px;margin-top:8px}
+    .dot{width:8px;height:8px;border-radius:50%;background:#f0a5c4}
+    .dot.active{background:var(--pink);width:24px;border-radius:99px}
+    .benefits{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:26px;
+    }
+    .benefit{
+      background:#fff;
+      border-radius:20px;
+      padding:20px;
+      border:2px solid rgba(255,22,130,.13);
+      box-shadow:0 8px 22px rgba(50,23,15,.08);
+    }
+    .benefit .icon{
+      width:44px;height:44px;border-radius:14px;background:var(--pink);color:#fff;
+      display:grid;place-items:center;font-size:1.3rem;margin-bottom:12px;
+    }
+    .benefit h3{font-size:1.35rem;margin-bottom:6px}
+    .benefit p{margin:0;color:#66554d;font-size:.92rem;line-height:1.55}
+    .steps{
+      display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px
+    }
+    .step{
+      display:flex;gap:14px;align-items:flex-start;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:18px;padding:17px;
+    }
+    .num{
+      flex:0 0 40px;width:40px;height:40px;border-radius:50%;
+      background:var(--yellow);color:var(--brown);display:grid;place-items:center;
+      font-weight:900;font-family:"Baloo 2",sans-serif;font-size:1.2rem
+    }
+    .step h3{font-size:1.2rem;margin-bottom:4px}
+    .step p{margin:0;color:rgba(255,255,255,.76);font-size:.86rem;line-height:1.5}
+    .price{
+      text-align:center;margin:22px 0 10px
+    }
+    .old{color:#777;text-decoration:line-through;font-weight:700}
+    .current{
+      font-family:"Baloo 2",sans-serif;
+      font-size:clamp(3.5rem,17vw,6rem);
+      line-height:.9;color:var(--pink);font-weight:800
+    }
+    .price-note{font-weight:700;color:#6b5b53}
+    .guarantee{
+      margin-top:22px;
+      background:#fff;
+      border-radius:20px;padding:18px;
+      display:flex;gap:12px;align-items:flex-start;
+      color:var(--brown)
+    }
+    .guarantee strong{display:block;margin-bottom:3px}
+    .faq{margin-top:24px;display:grid;gap:10px}
+    details{background:#fff;border-radius:16px;padding:15px 17px;color:var(--brown)}
+    summary{font-weight:800;cursor:pointer}
+    details p{color:#65564f;line-height:1.55;font-size:.9rem}
+    footer{
+      background:#180e0a;color:#fff;text-align:center;padding:30px 18px 100px;
+      font-size:.75rem;opacity:.96
+    }
+    .sticky{
+      position:fixed;left:10px;right:10px;bottom:10px;z-index:50;
+      background:var(--yellow);border:3px solid #fff;border-radius:999px;
+      box-shadow:0 12px 35px rgba(0,0,0,.3);
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      min-height:58px;padding:10px 18px;
+      font-family:"Baloo 2",sans-serif;font-size:1.12rem;font-weight:900;color:#190d09
+    }
+    .sticky small{display:block;font-family:Poppins,sans-serif;font-size:.65rem;font-weight:700}
+    @media (min-width:700px){
+      .hero-wrap{padding-bottom:30px}
+      .hero{max-width:720px}
+      .section{padding:72px 28px}
+      .benefits{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .slide{flex-basis:48%}
+      .sticky{left:50%;right:auto;transform:translateX(-50%);width:min(600px,calc(100% - 30px))}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <section class="hero-wrap" id="inicio">
+    <div class="hero">
+      <img src="assets/hero.jpeg" alt="Pipoca Viralizada — curso completo">
+      <a class="cta" href="#oferta">🍿 QUERO APRENDER AGORA <span class="arrow">→</span></a>
+      <div class="trust">
+        <span>🔒 Pagamento seguro</span>
+        <span>⚡ Acesso imediato</span>
+        <span>📱 Celular ou computador</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sabores">
+    <div class="container">
+      <span class="eyebrow">🍿 Veja os sabores</span>
+      <h2>Uma pipoca que chama atenção antes mesmo da primeira mordida.</h2>
+      <p class="lead">Deslize para ver algumas das opções apresentadas no curso.</p>
+      <div class="slider-shell">
+        <div class="slider">
+          <article class="slide"><video autoplay muted loop playsinline preload="auto" aria-label="Vídeo de pipoca gourmet — sabor 1"><source src="assets/video-01.mp4" type="video/mp4"></video></article>
+          <article class="slide"><video autoplay muted loop playsinline preload="auto" aria-label="Vídeo de pipoca gourmet — sabor 2"><source src="assets/video-02.mp4" type="video/mp4"></video></article>
+          <article class="slide"><video autoplay muted loop playsinline preload="auto" aria-label="Vídeo de pipoca gourmet — sabor 3"><source src="assets/video-03.mp4" type="video/mp4"></video></article>
+          <article class="slide"><video autoplay muted loop playsinline preload="auto" aria-label="Vídeo de pipoca gourmet — sabor 4"><source src="assets/video-04.mp4" type="video/mp4"></video></article>
+        </div>
+        <div class="dots" aria-hidden="true">
+          <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <span class="eyebrow">O que vais aprender</span>
+      <h2>Do primeiro preparo à primeira venda.</h2>
+      <p class="lead">Um percurso prático para aprender a produzir, organizar os custos e apresentar o produto de forma mais profissional.</p>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div><h3>Receitas passo a passo</h3><p>Aprenda a preparar diferentes sabores de pipoca gourmet.</p></div></div>
+        <div class="step"><div class="num">2</div><div><h3>Custos e lucro</h3><p>Organize os custos de produção e saiba calcular o preço de venda.</p></div></div>
+        <div class="step"><div class="num">3</div><div><h3>Embalagens</h3><p>Veja ideias para apresentar o produto de forma mais atractiva.</p></div></div>
+        <div class="step"><div class="num">4</div><div><h3>Estratégias de venda</h3><p>Aprenda formas de divulgar e apresentar a pipoca aos clientes.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section yellow">
+    <div class="container">
+      <span class="eyebrow" style="background:#fff;color:#d90968">✨ Por que esta oferta</span>
+      <h2>Mais do que uma receita: um método para colocar em prática.</h2>
+      <div class="benefits">
+        <div class="benefit"><div class="icon">👩🏽‍🍳</div><h3>Produção</h3><p>Conteúdo organizado para acompanhar o processo de preparação.</p></div>
+        <div class="benefit"><div class="icon">🧮</div><h3>Custos</h3><p>Aprenda a organizar os números antes de definir o preço.</p></div>
+        <div class="benefit"><div class="icon">📦</div><h3>Apresentação</h3><p>Ideias de embalagens e apresentação do produto.</p></div>
+        <div class="benefit"><div class="icon">📲</div><h3>Venda</h3><p>Estratégias de conteúdo e divulgação para mostrar o produto.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="oferta">
+    <div class="container">
+      <span class="eyebrow">🔥 Oferta especial</span>
+      <h2>Começa hoje com acesso ao curso completo.</h2>
+      <div class="offer-card" style="margin-top:24px">
+        <img src="assets/oferta-397.jpeg" alt="Oferta Pipoca Viralizada por 397 MT">
+      </div>
+      <div class="price">
+        <div class="old">De 597 MT</div>
+        <div class="current">397 MT</div>
+        <div class="price-note">Acesso ao conteúdo digital</div>
+      </div>
+      <!-- SUBSTITUA #CHECKOUT-URL pelo seu link de checkout -->
+      <a class="cta pink offer-cta" href="#CHECKOUT-URL">🍿 QUERO GARANTIR AGORA <span class="arrow">→</span></a>
+      <div class="guarantee">
+        <div style="font-size:1.5rem">🛡️</div>
+        <div><strong>Acesso imediato</strong><span>Receba o acesso ao conteúdo digital após a confirmação do pagamento.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pink">
+    <div class="container">
+      <span class="eyebrow" style="background:var(--yellow);color:var(--brown)">💛 Para quem é</span>
+      <h2>Para quem quer aprender uma nova habilidade de produção e venda.</h2>
+      <p class="lead">Para iniciantes, pessoas que querem testar uma nova fonte de rendimento ou quem simplesmente quer aprender a fazer pipocas gourmet com uma apresentação diferente.</p>
+      <a class="cta" href="#oferta">QUERO APRENDER 🍿 <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">❓ Perguntas frequentes</span>
+      <h2 style="text-align:left">Ainda tens dúvidas?</h2>
+      <div class="faq">
+        <details><summary>Como recebo o curso?</summary><p>O acesso é digital. Depois da confirmação do pagamento, o conteúdo pode ser acompanhado pelo celular ou computador.</p></details>
+        <details><summary>Preciso ter experiência?</summary><p>Não. A proposta é apresentar o processo de forma prática, começando pelos fundamentos.</p></details>
+        <details><summary>É só sobre receitas?</summary><p>Não. A oferta apresenta receitas, custos, embalagens e estratégias de venda, além dos materiais indicados na oferta.</p></details>
+        <details><summary>Posso assistir pelo celular?</summary><p>Sim. A página foi pensada para uma experiência mobile-first e a oferta indica acesso pelo celular ou computador.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>PIPOCA VIRALIZADA 🍿</strong><br>
+    Aprenda • Produza • Venda
+  </footer>
+
+  <a class="sticky" href="#oferta">
+    🍿 QUERO APRENDER AGORA <span class="arrow">→</span>
+  </a>
+</div>
+</body>
+</html>
